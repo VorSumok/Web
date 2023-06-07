@@ -8,20 +8,19 @@ if (isset($_POST))
     $category = $_POST['category'];
 }
 
-$mysqli = new mysqli('db', 'root', 'helloworld', 'w');
+$My_Sqli = new mysqli('db', 'root', 'helloworld', 'w');
 
 if (mysqli_connect_errno())
 {
-    printf('Can not connect to mysql server. Error code: %s', mysqli_connect_error());
+    printf('OPS( Can not connect to mysql server. Error code: %s', mysqli_connect_error());
     exit();
 }
 
 
-$mysqli->query("INSERT INTO ad (email, title, description, category) VALUES
-                                                         ('$email', '$title', '$description', '$category')");
+$My_Sqli->query("INSERT INTO ad (email, title, description, category) VALUES ('$email', '$title', '$description', '$category')");
 
 
-if($result = $mysqli->query('SELECT * FROM ad ORDER BY craeted DESC'))
+if($result = $My_Sqli->query('SELECT * FROM ad ORDER BY craeted DESC'))
 {
     while( $row = $result->fetch_assoc())
     {
@@ -34,5 +33,5 @@ if($result = $mysqli->query('SELECT * FROM ad ORDER BY craeted DESC'))
     }
     $result->close();
 }
-$mysqli -> close();
+$My_Sqli -> close();
 ?>

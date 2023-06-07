@@ -8,8 +8,8 @@
     <title>Document</title>
     <style>
         .my_select{
-            width: 100px;
-            height: 30px;
+            width: 200px;
+            height: 60px;
         }
     </style>
 </head>
